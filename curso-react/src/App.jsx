@@ -13,8 +13,20 @@ import LoginButton from "../fundamentos-react/componentes/LoginButton";
 import Warning from "../fundamentos-react/componentes/Warning";
 import NumberList from "../fundamentos-react/componentes/NumberList";
 import Greeting from "../fundamentos-react/componentes/Greeting";
-import Contagem from "../fundamentos-react/componentes/Contagem";*/
+import Contagem from "../fundamentos-react/componentes/Contagem";
 import TaskList from "../fundamentos-react/componentes/TaskList";
+import ExemploUseEffect from "../hooks/componentes/ExemploUseEffect";
+import Timer from "../hooks/componentes/Timer";
+import ComponenteFilho from "../contexts/ComponenteFilho";
+import ValorDoContexto from "../contexts/ValorDoContexto";
+import { MeuContextoProvider } from "../contexts/MeuContexto";
+import Contador from "../hooks/componentes/Contador";
+import DisplayWindowSize from "../hooks/componentes/DisplayWindowSize";
+import Container from "../hooks/componentes/Container";
+import PerfilDeUsuario from "../hooks/componentes/PerfilDeUsuario";*/
+
+import Usuario from "../hooks/componentes/Usuario";
+import FibCalculator from "../hooks/componentes/FibCalculator";
 
 function App() {
 
@@ -36,8 +48,23 @@ function App() {
       <Warning warning={true}/>
       <NumberList numbers={[1, 3, 5, 6]}/>
       <Greeting nome="Elisa"/> 
-      <Contagem />*/}
+      <Contagem />
       <TaskList/>
+      <ExemploUseEffect />
+      <Timer />
+      <MeuContextoProvider>
+        <ComponenteFilho />
+        <ValorDoContexto />
+      </MeuContextoProvider>
+      <Contador />
+      <DisplayWindowSize />
+      <Container>
+        <h1>Título da seção</h1>
+        <p>Este é o meu subtítulo</p>
+      </Container>
+      <PerfilDeUsuario usuarioId={1}/>*/}
+      <Usuario />
+      <FibCalculator n={10} />
     </>
   )
 }
