@@ -1,10 +1,15 @@
-import { useEffect, useState } from "react";
-import TaskList from "../to-do-list/componentes/TaskList";
 import "./App.css";
+import { Routes, Route, Link, NavLink } from "react-router-dom";
+import Home from "./pages/Home";
+import Sobre from "./pages/Sobre";
+import Contato from "./pages/Contato";
+import Dashboard from "./pages/Dashboard";
+import Perfil from "./pages/Perfil";
+import NotFound from "./pages/NotFound";
 
 function App() {
 
-  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
+  /*const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
 
     useEffect(() => {
       localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -29,51 +34,29 @@ function App() {
     function marcarComoConcluida(taskId){
       setTasks(tasks.map((task) => task.id === taskId ? {
         ...task, isCompleta: true } : task))
-      }
-    }
+      }*/
 
   return (
     <>
-      {/*Criação de componente
-      <Welcome/>
-      <BomDia/>
-      <Pai/>
-      <Descricao nome="Elisa" idade={21}/>
-      <Cachorro nome="Rabito" raca="Vira-lata"/>
-      <Counter/>
-      <UserInfoForm />
-      <Button/>
-      <Form />
-      <RenderCondicional user="Elisa"/>
-      <LoginButton loggedIn={false} />
-      <LoginButton loggedIn={true} />
-      <Warning warning={true}/>
-      <NumberList numbers={[1, 3, 5, 6]}/>
-      <Greeting nome="Elisa"/> 
-      <Contagem />
-      <TaskList/>
-      <ExemploUseEffect />
-      <Timer />
-      <MeuContextoProvider>
-        <ComponenteFilho />
-        <ValorDoContexto />
-      </MeuContextoProvider>
-      <Contador />
-      <DisplayWindowSize />
-      <Container>
-        <h1>Título da seção</h1>
-        <p>Este é o meu subtítulo</p>
-      </Container>
-      <PerfilDeUsuario usuarioId={1}/>
-      <Usuario />
-      <FibCalculator n={10} />*/}
+      <div>
+        <h2>Itens</h2>
+        <Link to="/itens/1">Item</Link>
+      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/sobre" element={<Sobre />} />
+        <Route path="/contato" element={<Contato />} />
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="perfil" element={<Perfil />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
 
-
-      <h1>Lista de Tarefas</h1>
-      <Input onClickAdicionar={addTask} />
-      <TaskList tasks={tasks} removeTask={removeTask} />
+      {/*Serve para identificar que é aquela página que está aberta*/}
+      <NavLink className={({ isActive}) => (isActive ? "active-link" : "")} to="/contato"></NavLink>
     </>
   )
+}
 
 
 export default App;
